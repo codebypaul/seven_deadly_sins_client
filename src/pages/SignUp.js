@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+const REACT_APP_AUTH = process.env.REACT_APP_AUTH;
 // import keys from '../utils/credentials';
 // const { REACT_APP_SERVER_URL } = keys;
 
@@ -43,7 +43,7 @@ const Signup = () => {
         if (password === confirmPassword) {
             const newUser = { firstName, lastName, email, DOB, password };
             
-            axios.post(`${REACT_APP_SERVER_URL}/auth/register`, newUser)
+            axios.post(`${REACT_APP_AUTH}/auth/register`, newUser)
             .then(response => {
                 console.log(response);
                 setRedirect(true);

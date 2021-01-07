@@ -4,11 +4,11 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../utils/setAuthToken';
 import { Redirect } from 'react-router-dom';
-const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
+const REACT_APP_AUTH = process.env.REACT_APP_AUTH
 // import keys from '../utils/credentials';
 // const { REACT_APP_SERVER_URL } = keys;
 
-console.log(process.env.REACT_APP_SERVER_URL);
+console.log(process.env.REACT_APP_AUTH);
 const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -25,7 +25,7 @@ const Login = (props) => {
         e.preventDefault();
         const userData = { email, password };
 
-        axios.post(`${REACT_APP_SERVER_URL}/auth/login`, userData)
+        axios.post(`${REACT_APP_AUTH}/auth/login`, userData)
         .then(response => {
             const { token } = response.data;
             // Save token to localStorage
