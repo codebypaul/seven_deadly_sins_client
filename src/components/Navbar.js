@@ -4,24 +4,29 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap'
 
 export default function Navigation(props) {
   return(
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" sticky='top'>
       <Navbar.Brand href="/">SevenDeadlySinsAPI</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/docs">Docs</Nav.Link>
+        <Nav className="ml-auto">
+          <Nav.Link href='/docs'>Docs</Nav.Link>
+            <div className='d-flex'>
           {props.isAuth ?
             <div>
+         
             <Nav.Link href='/profile'>Profile</Nav.Link>
-            <span onClick={props.handleLogout} className="nav-link logout-link">Logout</span>
+              <span onClick={props.handleLogout} className="nav-link logout-link">Logout</span>
+
             </div>
+            
             :
             <div>
               <Nav.Link href='/signup'>Sign Up</Nav.Link>
               <Nav.Link href='/Login'>Login</Nav.Link>
+
             </div>
           }
+          </div>
           {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

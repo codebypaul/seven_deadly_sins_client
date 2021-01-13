@@ -10,3 +10,7 @@
 .main-image{
     width: 100%;
 }
+.home-img{
+    width: 100%;
+    z-index: -1;
+}

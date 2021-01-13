@@ -24,28 +24,27 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 }
 
 function App() {
-  // Set state values
-  const [currentUser, setCurrentUser] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-  // const [] = useState()
+  // set state values
+  let [currentUser, setCurrentUser] = useState("");
+  let [isAuthenticated, setIsAuthenticated] = useState(true);
 
   useEffect(() => {
     let token;
-    // if there is no token in localStorage, then the user is in authenticated
     if (!localStorage.getItem('jwtToken')) {
       setIsAuthenticated(false);
     } else {
       token = jwt_decode(localStorage.getItem('jwtToken'));
       setAuthToken(localStorage.jwtToken);
       setCurrentUser(token);
+      setIsAuthenticated(true);
     }
   }, []);
 
   const nowCurrentUser = (userData) => {
-    console.log('nowCurentUser is here...');
+    console.log('nowCurrentUser is working...');
     setCurrentUser(userData);
     setIsAuthenticated(true);
-  }
+  };
 
   const handleLogout = () => {
     if (localStorage.getItem('jwtToken')) {
@@ -55,22 +54,23 @@ function App() {
     }
   }
 
-  return (
-    <div className="">
-      <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
+  console.log('Current User', currentUser);
+  console.log('Authenicated', isAuthenticated);
 
+  return (
+    <div>
+      <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
         <Switch>
-          <Route path='/signup' component={ Signup } />
+          <Route path="/signup" component={ Signup } />
           <Route 
-            path='/login' 
-            render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>} />
-          <PrivateRoute path="/profile" component={ Profile } user={currentUser}/>
-          {/* <Route exact path="/" render={()=>{<Home sins={}/>}}/> */}
+            path="/login" 
+            render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>} 
+          />
+          <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           <Route exact path='/' component={Home}/>
-          <Route path="/docs" component={ Docs }/>
-          <Route path="/details:name" component={ Details }/>
+          <Route path='/docs' component={Docs}/>
+          <Route path='/details:name' component={Details}/>
         </Switch>
-      {/* <Footer /> */}
     </div>
   );
 }
