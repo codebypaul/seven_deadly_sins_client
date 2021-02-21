@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap'
 import LinkLocation from './LinkLocation'
 
 export default function DocsBody() {
-    const markdown = ''
+    // const markdown = ''
     return(
         <Card>
             <LinkLocation/>
