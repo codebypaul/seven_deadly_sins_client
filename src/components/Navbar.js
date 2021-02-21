@@ -9,8 +9,10 @@ export default function Navigation(props) {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link href='/docs'>Docs</Nav.Link>
-            <div className='d-flex'>
+          <Nav.Link href='/'>Home</Nav.Link>
+          <Nav.Link href='/docs'>About</Nav.Link>
+          <Nav.Link href='/docs'>Documentation</Nav.Link>
+            {/* <div className='d-flex'>
           {props.isAuth ?
             <div>
          
@@ -26,7 +28,7 @@ export default function Navigation(props) {
 
             </div>
           }
-          </div>
+          </div> */}
           {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -35,10 +37,10 @@ export default function Navigation(props) {
             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
           </NavDropdown> */}
         </Nav>
-        <Form inline>
+        {/* <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-success">Search</Button>
-        </Form>
+        </Form> */}
       </Navbar.Collapse>
     </Navbar>
   )
