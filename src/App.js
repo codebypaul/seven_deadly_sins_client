@@ -8,6 +8,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // Components
 import Navbar from './components/Navbar';
+import Footer from './components/Footer'
 // Pages
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -61,18 +62,19 @@ function App() {
   return (
     <div>
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
-        <Switch>
-          <Route path="/signup" component={ Signup } />
-          <Route 
-            path="/login" 
-            render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>} 
-          />
-          <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
-          <Route exact path='/' component={Home}/>
-          <Route path='/docs' component={Docs}/>
-          <Route path='/details:name' component={Details}/>
-          <Route path='/about' component={About}/>
-        </Switch>
+      <Switch>
+        <Route path="/signup" component={ Signup } />
+        <Route 
+          path="/login" 
+          render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>} 
+        />
+        <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
+        <Route exact path='/' component={Home}/>
+        <Route path='/docs' component={Docs}/>
+        <Route path='/details:name' component={Details}/>
+        <Route path='/about' component={About}/>
+      </Switch>
+      <Footer/>
     </div>
   );
 }

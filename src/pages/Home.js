@@ -34,12 +34,12 @@ export default function Home() {
         <InputGroup className="mb-3">
             <InputGroup.Prepend>
             <InputGroup.Text id="basic-addon3">
-                https://example.com/users/
+                https://sevendeadlysinapi.com/
             </InputGroup.Text>
             </InputGroup.Prepend>
-            <FormControl id="basic-url" aria-describedby="basic-addon3" />
+            <FormControl id="basic-url" aria-describedby="basic-addon3" placeholder='characters/Meliodas/'/>
             <InputGroup.Append>
-            <Button variant="primary" onclick={setCharacter}>Submit</Button>
+            <Button variant="primary" onClick={setCharacter}>Submit</Button>
             </InputGroup.Append>
         </InputGroup>
         <div>
@@ -58,8 +58,21 @@ export default function Home() {
                 <Sin name="Gowther"/>
             </div> */}
 
-            <div className="home-info">
-                
+            <div className="row m-0 py-3">
+                <div className="col-md-6 px-3">
+                    <h5 className='text-center'>What is this?</h5>
+                    <div className="card p-3">
+                        <p>This is a full RESTful API linked to an extensive database detailing everything about the Seven Deadly Sins universe.</p>
+
+                    </div>
+                </div>
+                <div className="col-md-6 px-3">
+                <h5 className='text-center'>Where can I start?</h5>
+                    <div className="card p-3">
+                        <p>Checkout our <Link to='/documentation'>documentation</Link>.</p>
+                        
+                    </div>
+                </div>
             </div>
 
         </>

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export default function Sin(props) {
     return (
-        <SinWrapper onclick={()=>{
+        <SinWrapper onClick={()=>{
             props.name = 'different'
         }}>
             {props.name}
