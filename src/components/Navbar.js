@@ -5,7 +5,7 @@ import { Navbar, Nav } from 'react-bootstrap'
 export default function Navigation(props) {
   return(
     <Navbar bg="light" expand="lg" sticky='top'>
-      <Navbar.Brand href="/">
+      <Navbar.Brand href="/" className='deutsch'>
         <img src={logo} alt="" width="45rem"/>API
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
